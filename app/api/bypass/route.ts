@@ -17,7 +17,11 @@ export async function POST(request: Request) {
   const body = JSON.parse(await request.text());
   const { host, path, method, headers, params, data } = body;
   const response = await post(host, path, method, headers, params, data);
-  response.headers.set("Access-Control-Allow-Credentials", "true");
-  response.headers.set("Access-Control-Allow-Origin", "*");
+  //   response.headers.set("Access-Control-Allow-Credentials", "true");
+  //   response.headers.set("Access-Control-Allow-Origin", "*");
   return response;
+}
+
+export async function OPTIONS() {
+  return new Response();
 }
