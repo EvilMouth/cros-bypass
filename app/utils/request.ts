@@ -9,7 +9,7 @@ export const post = (
   params: {},
   body: {}
 ): Promise<Response> => {
-//   console.log(host, path, method, headers, params, body);
+  //   console.log(host, path, method, headers, params, body);
   if (params) {
     path = `${path}?${querystring.stringify(params)}`;
     // console.log("encode query", path);
@@ -31,7 +31,7 @@ export const post = (
         res.on("end", () => {
           const headers = new Headers();
           for (const [k, v] of Object.entries(res.headers)) {
-            headers.set(k, v);
+            headers.set(k, `${v}`);
           }
           resolve(
             new Response(data, {
